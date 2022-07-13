@@ -2,7 +2,7 @@ const axios = require("axios");
 const { Episode, Character } = require("../db.js");
 
 const getCharactersApi = async () => {
-  const nroPages = 5;
+  const nroPages = 42;
   let links = [];
   for (let i = 1; i <= nroPages; i++) {
     links.push(`https://rickandmortyapi.com/api/character?page=${i}`);
