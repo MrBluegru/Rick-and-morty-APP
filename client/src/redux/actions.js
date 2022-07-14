@@ -9,3 +9,23 @@ export function getCharacters() {
         });
     }
 }
+
+export function getEpisodes() {
+    return async function (dispatch) {
+        const response = await axios.get('http://localhost:3001/episodes/');
+        dispatch({
+            type: 'GET_EPISODES',
+            payload: response.data
+        });
+    }
+}
+
+export function createCharacter(character) {
+    return async function (dispatch) {
+        const response = await axios.post('http://localhost:3001/character/', character);
+        dispatch({
+            type: 'CREATE_CHARACTER',
+            payload: response.data
+        });
+    }
+}

@@ -1,13 +1,22 @@
-import "../styles/card.css"
+import "../styles/card.css";
 
-export default function Card({ image, name, origin, species, episodes }) {
+export default function Card({ id, image, name, origin, species, episodes }) {
   return (
-    <div className="card" key={name}>
-      <h1>{name}</h1>
-      <img src={image} alt={`Imagen de ${name}`} />
-      <h2>{species}</h2>
-      <h3>{origin}</h3>
-      <h4>{episodes}</h4>
+    <div className="card" key={id}>
+
+      <div className="name">
+        <h1>{name}</h1>
+      </div>
+
+      <div className="imagen">
+        <img src={image} alt={`Imagen de ${name}`} />
+      </div>
+
+      <div className="details">
+        <h2>Especie: {species}</h2>
+        <h3>Origen: {origin}</h3>
+        <h4>{episodes}</h4>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,65 @@
+.createCharacter {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #2b2b2b41 0%, #0000005f 80%),
+    url("../img/mk3.jpg");
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center;
+  background-size: cover;
+}
+
+.titulo-form {
+  font-size: 3rem;
+  font-weight: bold;
+  color: rgb(18, 206, 93);
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.88);
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+}
+
+.formPerso {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 5px;
+  color: #e2e3e7;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonGoHome {
+  background-color: #000000;
+  color: rgb(229, 17, 102);
+  border: none;
+  border-radius: 5px;
+  padding: 1rem;
+  font-size: 2rem;
+  font-family: fantasy;
+  cursor: pointer;
+  margin: 10px;
+}
+.boton_crear {
+  background-color: #000000;
+  color: rgb(229, 17, 102);
+  border: none;
+  border-radius: 5px;
+  padding: 1rem;
+  font-size: 2rem;
+  font-family: fantasy;
+  cursor: pointer;
+  margin: 10px;
+}

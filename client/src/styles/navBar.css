@@ -1,0 +1,10 @@
+.navbar-button {
+  background-color: #000000;
+  color: rgb(229, 17, 102);
+  border: none;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  font-size: 2rem;
+  font-family: fantasy;
+  cursor: pointer;
+}

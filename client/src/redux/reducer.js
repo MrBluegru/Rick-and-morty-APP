@@ -10,6 +10,17 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         characters: action.payload,
       };
+    case "GET_EPISODES":
+      return {
+        ...state,
+        episodes: action.payload,
+      };
+    case "CREATE_CHARACTER":
+      return {
+        ...state,
+        characters: [...state.characters, action.payload],
+      };
+
     default:
       return state;
   }
