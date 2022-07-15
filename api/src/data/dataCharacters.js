@@ -2,7 +2,7 @@ const axios = require("axios");
 const { Episode, Character } = require("../db.js");
 
 const getCharactersApi = async () => {
-  const nroPages = 42;
+  const nroPages = 5;
   let links = [];
   for (let i = 1; i <= nroPages; i++) {
     links.push(`https://rickandmortyapi.com/api/character?page=${i}`);
@@ -28,7 +28,7 @@ const getCharactersApi = async () => {
 const getCharactersDB = async () => {
   const charactersDB = await Character.findAll({
     include: [
-      { model: Episode, attributes: ["name"], through: { attributes: [] } },
+      { model: Episode, through: { attributes: [] } },
     ],
   });
   const DBchart = charactersDB.map((e) => {

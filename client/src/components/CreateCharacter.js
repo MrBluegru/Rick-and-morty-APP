@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getEpisodes, createCharacter } from "../redux/actions";
+import swal from "sweetalert";
 import { Link } from "react-router-dom";
 import "../styles/createCharacter.css";
 
@@ -15,6 +16,23 @@ export default function CreateCharacter() {
     species: "",
     episodes: [],
   });
+
+  // Validacion de ingreso /////////////////////////////////////
+
+  // const regex = {
+  //   nombre: /^[a-z ,.'-]+$/i,
+  // };
+
+  const validacion = (nombre) => {
+
+    if (nombre.length <= 2) {
+      // return "Es un nombre muy corto pibe";
+    }
+    
+  };
+
+  const errorMensaje = validacion(input.name)
+  ///////////////////////////////////////////////////////////////
 
   function handleclick(e) {
     e.preventDefault();
@@ -43,15 +61,16 @@ export default function CreateCharacter() {
       </div>
 
       <form className="formPerso">
-        <label>Nombre:</label>
+        <label>Nombre</label>
         <input
           type="text"
           name="name"
           value={input.name}
           onChange={(e) => handleChange(e)}
         />
+        {/* <p>{errorMensaje}</p> */}
 
-        <label>Especie:</label>
+        <label>Especie</label>
         <input
           type="text"
           name="species"
@@ -59,7 +78,7 @@ export default function CreateCharacter() {
           onChange={(e) => handleChange(e)}
         />
 
-        <label>Origen:</label>
+        <label>Origen</label>
         <input
           type="text"
           name="origin"
@@ -83,40 +102,42 @@ export default function CreateCharacter() {
           })}
         </select>
 
-        <label>Imagen:</label>
+        <label>Imagen</label>
         <input
-          type="jpg"
+          type="text"
           name="image"
           value={input.image}
           onChange={(e) => handleChange(e)}
         />
-
-        <div className="buttons">
-          <Link to="/home">
-            <button className="buttonGoHome">Volver</button>
-          </Link>
-          <button
-            className="boton_crear"
-            type="submit"
-            onClick={(e) => {
-              e.preventDefault();
-              dispatch(createCharacter(input));
-              alert("Personaje creado");
-            }}
-          >
-            Crear
-          </button>
-
-          <button
-            className="boton_crear"
-            onChange={(e) => {
-              handleclick(e);
-            }}
-          >
-            Añadir 1+
-          </button>
-        </div>
       </form>
+      <div className="buttons">
+        <Link to="/home">
+          <button className="buttonGoHome">Volver</button>
+        </Link>
+        <button
+          className="boton_crear"
+          type="submit"
+          onClick={(e) => {
+            e.preventDefault();
+            dispatch(createCharacter(input));
+            swal("¡Personaje Creado!", {
+              className: "swal1",
+            });
+          }}
+          disabled={errorMensaje}
+        >
+          Crear
+        </button>
+
+        <button
+          className="boton_añadir1"
+          onChange={(e) => {
+            handleclick(e);
+          }}
+        >
+          Añadir 1+
+        </button>
+      </div>
     </div>
   );
 }
